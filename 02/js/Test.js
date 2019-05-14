@@ -96,7 +96,7 @@ const QueueTest = () => {
     console.log(`ArrayQueue, time: ${time1} s`);
 
     const LoopQueue = new Queue();
-    const time2 = testQueueTime(arrayQueue, opCount);
+    const time2 = testQueueTime(LoopQueue, opCount);
     console.log(`LoopQueue, time: ${time2} s`);
 };
 
