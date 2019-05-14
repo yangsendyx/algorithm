@@ -65,11 +65,12 @@ public class LoopQueue<E> implements Queue<E> {
 	@Override
 	public String toString() {
 		StringBuilder res = new StringBuilder();
+		int size = getSize();
 		int capacity = getCapacity();
+
 		res.append(String.format("Queue: size = %d, capacity = %d\n", size, capacity));
 		res.append("front [");
-
-		int size = getSize();
+		
 		for( int i = 0; i < size; i++ ) {
 			int index = (i + front) % data.length;
 			res.append( data[index] );

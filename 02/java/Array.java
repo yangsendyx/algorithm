@@ -1,6 +1,5 @@
 
 public class Array<E> {
-
 	private E[] data;
 	private int size;
 
@@ -99,7 +98,7 @@ public class Array<E> {
 
 	public E remove(int index) {
 		if( index < 0 || index >= size ) {
-			throw new IllegalArgumentException("Get failed. Index is illegal.");
+			throw new IllegalArgumentException("Remove failed. Index is illegal.");
 		}
 
 		E res = data[index];
