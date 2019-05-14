@@ -1,0 +1,18 @@
+{
+  "name": "algorithm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "compile.js",
+  "dependencies": {
+    "commander": "^2.20.0",
+    "log4js": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/yangsenchn/algorithm.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
