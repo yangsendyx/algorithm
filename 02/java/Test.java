@@ -45,25 +45,25 @@ public class Test {
 	}
 
 	public static void QueueTest() {
-		/*ArrayQueue<Integer> queue = new ArrayQueue<>();
+		/*ArrayQueue<Integer> queue1 = new ArrayQueue<>();
 		for( int i=0; i<10; i++ ) {
-			queue.enqueue(i);
-			System.out.println(queue);
+			queue1.enqueue(i);
+			System.out.println(queue1);
 
 			if( i%3 == 2 ) {
-				queue.dequeue();
-				System.out.println(queue);
+				queue1.dequeue();
+				System.out.println(queue1);
 			}
-		}*/
+		}
 
-		/*LoopQueue<Integer> queue = new LoopQueue<>();
+		LoopQueue<Integer> queue2 = new LoopQueue<>();
 		for( int i=0; i<10; i++ ) {
-			queue.enqueue(i);
-			System.out.println(queue);
+			queue2.enqueue(i);
+			System.out.println(queue2);
 
 			if( i%3 == 2 ) {
-				queue.dequeue();
-				System.out.println(queue);
+				queue2.dequeue();
+				System.out.println(queue2);
 			}
 		}*/
 

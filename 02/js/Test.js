@@ -69,23 +69,23 @@ const testQueueTime = (queue, count) => {
 };
 
 const QueueTest = () => {
-    /*const queue = new ArrayQueue();
+    /*const queue1 = new ArrayQueue();
     for( let i=0; i<10; i++ ) {
-        queue.enqueue(i);
-        console.log( queue.toString() );
+        queue1.enqueue(i);
+        console.log( queue1.toString() );
         if( i%3 == 2 ) {
-            queue.dequeue();
-            console.log( queue.toString() );
+            queue1.dequeue();
+            console.log( queue1.toString() );
         }
-    }*/
+    }
 
-    /*const queue = new Queue(10);
+    const queue2 = new Queue(10);
     for( let i=0; i<10; i++ ) {
-        queue.enqueue(i);
-        console.log( queue.toString() );
+        queue2.enqueue(i);
+        console.log( queue2.toString() );
         if( i%3 == 2 ) {
-            queue.dequeue();
-            console.log( queue.toString() );
+            queue2.dequeue();
+            console.log( queue2.toString() );
         }
     }*/
 
