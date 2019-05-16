@@ -1,4 +1,4 @@
-
+// 数组队列
 public class ArrayQueue<E> implements Queue<E> {
 	Array<E> array;
 

@@ -1,16 +1,15 @@
-const Array = require('./Array');
 
 class Stack {
 	constructor() {
-		this._array = new Array();
+		this._data = [];
 	}
 
-	toString() { return `[ ${this._array.toString().join(', ')} ] top`; }
-	getSize() { return this._array.getSize(); }
-	isEmpty() { return this._array.isEmpty(); }
-	push(elm) { this._array.addLast(elm); }
-	pop() { return this._array.removeLast(); }
-	peek() { return this._array.getLast(); }
+	toString() { return `[ ${this._data.join(', ')} ] top`; }
+	getSize() { return this._data.length; }
+	isEmpty() { return !!this._data.length; }
+	push(elm) { this._data.push(elm); }
+	pop() { return this._data.shift(); }
+	peek() { return this._data(this._data.length-1); }
 }
 
 module.exports = Stack;

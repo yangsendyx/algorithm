@@ -1,4 +1,4 @@
-
+// 队列接口
 public interface Queue<E> {
 
 	public E getFront();

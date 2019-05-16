@@ -1,4 +1,4 @@
-
+// 栈接口
 public interface Stack<E> {
 
 	public int getSize();

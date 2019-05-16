@@ -1,4 +1,4 @@
-
+// 数组
 public class Array<E> {
 	private E[] data;
 	private int size;
@@ -65,7 +65,7 @@ public class Array<E> {
 
 	void set(int index, E e) {
 		if( index < 0 || index >= size ) {
-			throw new IllegalArgumentException("Get failed. Index is illegal.");
+			throw new IllegalArgumentException("Set failed. Index is illegal.");
 		}
 		data[index] = e;
 	}

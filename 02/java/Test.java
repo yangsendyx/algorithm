@@ -22,16 +22,6 @@ public class Test {
 	    return stack.isEmpty();
 	}
 
-	public static void main(String[] args) {
-		// System.out.println( (new Test()).isValid("()[]{}") );
-		// System.out.println( (new Test()).isValid("([)]") );
-
-
-		// ArrayTest();
-		// StackTest();
-		QueueTest();
-	}
-
 	private static double testQueueTime(Queue<Integer> q, int opCount) {
 		long startTime = System.nanoTime();
 
@@ -40,10 +30,8 @@ public class Test {
 		for( int i = 0; i < opCount; i++ ) q.dequeue();
 
 		long endTime = System.nanoTime();
-
 		return ( endTime - startTime ) / 1000000000.0;
 	}
-
 	public static void QueueTest() {
 		/*ArrayQueue<Integer> queue1 = new ArrayQueue<>();
 		for( int i=0; i<10; i++ ) {
@@ -65,6 +53,17 @@ public class Test {
 				queue2.dequeue();
 				System.out.println(queue2);
 			}
+		}
+
+		LinkedQueue<Integer> queue3 = new LinkedQueue<>();
+		for( int i=0; i<10; i++ ) {
+			queue3.enqueue(i);
+			System.out.println(queue3);
+
+			if( i%3 == 2 ) {
+				queue3.dequeue();
+				System.out.println(queue3);
+			}
 		}*/
 
 		int opCount = 100000;
@@ -76,18 +75,48 @@ public class Test {
 		LoopQueue<Integer> loopQueue = new LoopQueue<>();
 		double time2 = testQueueTime(loopQueue, opCount);
 		System.out.println("LoopQueue, time: " + time2 + " s");
+
+		LinkedQueue<Integer> linkedQueue = new LinkedQueue<>();
+		double time3 = testQueueTime(linkedQueue, opCount);
+		System.out.println("LinkedQueue, time: " + time3 + " s");
 	}
 
-	public static void StackTest() {
-		ArrayStack<Integer> stack = new ArrayStack<>();
+	private static double testStackTime(Stack<Integer> s, int opCount) {
+		long startTime = System.nanoTime();
 
+		Random random = new Random();
+		for( int i = 0; i < opCount; i++ ) s.push( random.nextInt(Integer.MAX_VALUE) );
+		for( int i = 0; i < opCount; i++ ) s.pop();
+
+		long endTime = System.nanoTime();
+		return ( endTime - startTime ) / 1000000000.0;
+	}
+	public static void StackTest() {
+		/*ArrayStack<Integer> stack = new ArrayStack<>();
 		for( int i=0; i<5; i++ ) {
 			stack.push(i);
 			System.out.println(stack);
 		}
-
 		stack.pop();
 		System.out.println(stack);
+
+		LinkedStack<Integer> likend = new LinkedStack<>();
+		for( int i=0; i<5; i++ ) {
+			likend.push(i);
+			System.out.println(likend);
+		}
+		likend.pop();
+		System.out.println(likend);*/
+
+		int opCount = 10000000;
+
+		ArrayStack<Integer> arrayStack = new ArrayStack<>();
+		double time1 = testStackTime(arrayStack, opCount);
+		System.out.println("ArrayStack, time: " + time1 + " s");
+
+		LinkedStack<Integer> linkedStack = new LinkedStack<>();
+		double time2 = testStackTime(linkedStack, opCount);
+		System.out.println("LinkedStack, time: " + time2 + " s");
 	}
 
 	public static void ArrayTest() {
@@ -111,5 +140,36 @@ public class Test {
 
 		arr.removeFirst();
 		System.out.println(arr);
+	}
+
+	public static void LinkedTest() {
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		for( int i=0; i<5; i++ ) {
+			linkedList.addFirst(i);
+			System.out.println( linkedList );
+		}
+
+		linkedList.add(2, 666);
+		System.out.println( linkedList );
+
+		linkedList.remove(2);
+		System.out.println( linkedList );
+
+		linkedList.removeFirst();
+		System.out.println( linkedList );
+
+		linkedList.removeLast();
+		System.out.println( linkedList );
+	}
+
+	public static void main(String[] args) {
+		// System.out.println( (new Test()).isValid("()[]{}") );
+		// System.out.println( (new Test()).isValid("([)]") );
+
+
+		// ArrayTest();
+		// StackTest();
+		QueueTest();
+		// LinkedTest();
 	}
 }

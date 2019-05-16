@@ -1,4 +1,4 @@
-
+// 数组栈
 public class ArrayStack<E> implements Stack<E> {
 	Array<E> array;
 
