@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Test {
 	// leetcode 有效的括号 20题
-	public boolean isValid(String s) {
+	/*public boolean isValid(String s) {
 	    ArrayStack<Character> stack = new ArrayStack<>();
 
 	    int len = s.length();
@@ -20,7 +20,7 @@ public class Test {
 	    }
 
 	    return stack.isEmpty();
-	}
+	}*/
 
 	private static double testQueueTime(Queue<Integer> q, int opCount) {
 		long startTime = System.nanoTime();
@@ -163,13 +163,15 @@ public class Test {
 	}
 
 	public static void main(String[] args) {
-		// System.out.println( (new Test()).isValid("()[]{}") );
-		// System.out.println( (new Test()).isValid("([)]") );
+		System.out.println("Start.");
+		LeetCode leetCode = new LeetCode();
+		System.out.println( leetCode.no20("()[]{}") );
+		System.out.println( leetCode.no20("([)]") );
 
 
 		// ArrayTest();
 		// StackTest();
-		QueueTest();
+		// QueueTest();
 		// LinkedTest();
 	}
 }
