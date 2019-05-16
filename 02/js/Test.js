@@ -146,13 +146,21 @@ const LinkedTest = () => {
 
 function main() {
     console.log('Start.');
-    // console.log( leetCode.no20('{[]}') );
-    // console.log( leetCode.no20('([)]') );
+    LeetCodeTest();
 
     // ArrayTest();
     // StackTest();
     // QueueTest();
     // LinkedTest();
+}
+
+function LeetCodeTest() {
+    /*leetCode.test20('{[]}');
+    leetCode.test20('([)]');*/
+
+    leetCode.test203([1,2,6,3,4,5,6], 6);
+    leetCode.test203([1], 1);
+    leetCode.test203([], 1);
 }
 
 main();

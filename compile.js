@@ -43,7 +43,11 @@ program
         const _exec = () => {
             Logger.info('java 执行:');
             const java = exec(`cd ${buildBase} && java ${name}`, (err, sOut, sErr) => {
-                if( err || sErr ) return console.error(err || sErr);
+                if( err || sErr ) {
+                    console.error('stderr', sErr);
+                    console.error('error', err);
+                    return;
+                }
                 console.log(sOut);
                 execJs && jsExec();
             });

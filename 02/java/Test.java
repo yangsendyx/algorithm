@@ -1,27 +1,6 @@
 import java.util.Random;
 
 public class Test {
-	// leetcode 有效的括号 20题
-	/*public boolean isValid(String s) {
-	    ArrayStack<Character> stack = new ArrayStack<>();
-
-	    int len = s.length();
-	    for( int i = 0; i < len; i++ ) {
-	    	char c = s.charAt(i);
-	    	if( c == '{' || c == '[' || c =='(' ) {
-	    		stack.push( c );
-	    	} else {
-	    		if( stack.isEmpty() ) return false;
-	    		char top = stack.pop();
-	    		if( c == '}' && top != '{' ) return false;
-	    		if( c == ']' && top != '[' ) return false;
-	    		if( c == ')' && top != '(' ) return false;
-	    	}
-	    }
-
-	    return stack.isEmpty();
-	}*/
-
 	private static double testQueueTime(Queue<Integer> q, int opCount) {
 		long startTime = System.nanoTime();
 
@@ -164,14 +143,25 @@ public class Test {
 
 	public static void main(String[] args) {
 		System.out.println("Start.");
-		LeetCode leetCode = new LeetCode();
-		System.out.println( leetCode.no20("()[]{}") );
-		System.out.println( leetCode.no20("([)]") );
-
+		LeetCodeTest();
 
 		// ArrayTest();
 		// StackTest();
 		// QueueTest();
 		// LinkedTest();
+	}
+
+	public static void LeetCodeTest() {
+		LeetCode leetCode = new LeetCode();
+		
+		/*leetCode.test20("()[]{}");
+		leetCode.test20("([)]");*/
+		
+		int[] nums1 = {1,2,6,3,4,5,6};
+		leetCode.test203(nums1, 6);
+		int[] nums2 = {1};
+	    leetCode.test203(nums2, 1);
+	    int[] nums3 = {};
+	    leetCode.test203(nums3, 1);
 	}
 }
