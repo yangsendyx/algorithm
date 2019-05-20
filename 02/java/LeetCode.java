@@ -62,7 +62,7 @@ public class LeetCode {
 
 		return head;*/
 
-		ListNode dummyHead = new ListNode(-1);
+		/*ListNode dummyHead = new ListNode(-1);
 		dummyHead.next = head;
 
 		ListNode prev = dummyHead;
@@ -76,7 +76,11 @@ public class LeetCode {
 			}
 		}
 
-		return dummyHead.next;
+		return dummyHead.next;*/
+
+		if( head == null ) return null;
+		head.next = num203(head.next, val);
+		return head.val == val ? head.next : head;
 	}
 	public void test203(int[] nums, int val) {
 		ListNode dummyHead = new ListNode(0);

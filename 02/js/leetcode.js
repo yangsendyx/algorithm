@@ -53,7 +53,7 @@ const num203 = (head, val) => {
     }
     return head;*/
 
-    const dummyHead = new ListNode(0);
+    /*const dummyHead = new ListNode(0);
     dummyHead.next = head;
 
     let prev = dummyHead;
@@ -66,7 +66,11 @@ const num203 = (head, val) => {
             prev = prev.next;
         }
     }
-    return dummyHead.next;
+    return dummyHead.next;*/
+
+    if( !head ) return null;
+	head.next = num203(head.next, val);
+	return head.val == val ? head.next : head;
 };
 exports.test203 = (nums, val) => {
     const dummyHead = new ListNode(-1);
