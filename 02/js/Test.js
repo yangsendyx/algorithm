@@ -5,6 +5,7 @@ const Queue = require('./Queue');
 const Linked = require('./Linked');
 const LinkedStack = require('./LinkedStack');
 const LinkedQueue = require('./LinkedQueue');
+const BST = require('./BST');
 
 const leetCode = require('./leetcode');
 
@@ -144,14 +145,28 @@ const LinkedTest = () => {
     console.log( linkedList.toString() );
 };
 
+const BSTTest = () => {
+    const bst = new BST();
+    const nums = [5,3,6,8,4,2];
+    for( let num of nums ) {
+        bst.add(num);
+    }
+
+    bst.preOrder();
+    console.log('\n');
+
+    console.log(bst.toString());
+};
+
 function main() {
     console.log('Start.');
-    LeetCodeTest();
+    // LeetCodeTest();
 
     // ArrayTest();
     // StackTest();
     // QueueTest();
     // LinkedTest();
+    BSTTest();
 }
 
 function LeetCodeTest() {

@@ -141,14 +141,28 @@ public class Test {
 		System.out.println( linkedList );
 	}
 
+	public static void BSTTest() {
+		BST<Integer> bst = new BST<>();
+		int[] nums = {5,3,6,8,4,2};
+		for( int num: nums ) {
+			bst.add(num);
+		}
+
+		bst.preOrder();
+		System.out.println();
+
+		System.out.println(bst);
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Start.");
-		LeetCodeTest();
+		// LeetCodeTest();
 
 		// ArrayTest();
 		// StackTest();
 		// QueueTest();
 		// LinkedTest();
+		BSTTest();
 	}
 
 	public static void LeetCodeTest() {
