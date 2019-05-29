@@ -155,7 +155,16 @@ const BSTTest = () => {
     bst.preOrder();
     console.log('\n');
 
-    console.log(bst.toString());
+    bst.preOrderNR();
+    console.log('\n');
+
+    // console.log(bst.toString());
+
+    // bst.inOrder();
+    // console.log('\n');
+
+    // bst.postOrder();
+    // console.log('\n');
 };
 
 function main() {

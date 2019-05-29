@@ -1,3 +1,4 @@
+const Stack = require('./LinkedStack');
 // Binary Search Tree
 class Node {
 	constructor(elm) {
@@ -64,13 +65,41 @@ class BST {
 		}
 	}
 
-	// compare=fn; return [-1, 0, 1];
 	preOrder() { this._preOrder(this.root); }
 	_preOrder(node, compare) {
 		if( !node ) return;
 		console.log( node.toString() );
 		this._preOrder(node.left);
 		this._preOrder(node.right);
+	}
+
+	preOrderNR() {
+		const stack = new Stack();
+		stack.push(this.root);
+
+		while( !stack.isEmpty() ) {
+			const cur = stack.pop();
+			console.log( cur.toString() );
+
+			if( cur.right ) stack.push( cur.right );
+			if( cur.left ) stack.push( cur.left );
+		}
+	}
+
+	inOrder() { this._inOrder(this.root); }
+	_inOrder(node, compare) {
+		if( !node ) return;
+		this._inOrder(node.left);
+		console.log( node.toString() );
+		this._inOrder(node.right);
+	}
+
+	postOrder() { this._postOrder(this.root); }
+	_postOrder(node, compare) {
+		if( !node ) return;
+		this._postOrder(node.left);
+		this._postOrder(node.right);
+		console.log( node.toString() );
 	}
 
 	toString() {

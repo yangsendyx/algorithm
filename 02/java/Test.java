@@ -151,7 +151,16 @@ public class Test {
 		bst.preOrder();
 		System.out.println();
 
-		System.out.println(bst);
+		bst.preOrderNR();
+		System.out.println();
+
+		// System.out.println(bst);
+
+		// bst.inOrder();
+		// System.out.println();
+
+		// bst.postOrder();
+		// System.out.println();
 	}
 
 	public static void main(String[] args) {
