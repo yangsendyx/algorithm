@@ -152,10 +152,13 @@ const BSTTest = () => {
         bst.add(num);
     }
 
-    bst.preOrder();
+    /*bst.preOrder();
     console.log('\n');
 
     bst.preOrderNR();
+    console.log('\n');*/
+
+    bst.levelOrder();
     console.log('\n');
 
     // console.log(bst.toString());

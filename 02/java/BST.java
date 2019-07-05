@@ -1,4 +1,6 @@
 import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
 // Binary Search Tree
 public class BST<E extends Comparable<E>> {
 	private class Node {
@@ -89,7 +91,7 @@ public class BST<E extends Comparable<E>> {
 		preOrder(node.left);
 		preOrder(node.right);
 	}
-
+	// 非递归前序遍历
 	public void preOrderNR() {
 		Stack<Node> stack = new Stack<>();
 		stack.push(root);
@@ -123,6 +125,121 @@ public class BST<E extends Comparable<E>> {
 		postOrder(node.left);
 		postOrder(node.right);
 		System.out.println(node.e);
+	}
+
+	public void levelOrder() {
+		Queue<Node> q = new LinkedList<>();
+		q.add(root);
+
+		while( !q.isEmpty() ) {
+			Node cur = q.remove();
+			System.out.println(cur.e);
+
+			if( cur.left != null ) q.add(cur.left);
+			if( cur.right != null ) q.add(cur.right);
+		}
+	}
+
+	public E minimum() {
+		if( size == 0 ) {
+			throw new IllegalArgumentException("BST is empty!");
+		}
+		return minimum(root).e;
+	}
+	private Node minimum(Node node) {
+		if( node.left == null ) {
+			return node;
+		}
+		return minimum(node.left);
+	}
+
+	public E maximum() {
+		if( size == 0 ) {
+			throw new IllegalArgumentException("BST is empty!");
+		}
+		return maximum(root).e;
+	}
+	private Node maximum(Node node) {
+		if( node.right == null ) {
+			return node;
+		}
+		return maximum(node.right);
+	}
+
+	public E removeMin() {
+		E ret = minimum();
+		root = removeMin(root);
+		return ret;
+	}
+	private Node removeMin(Node node) {
+		if( node.left == null ) {
+			Node rightNode = node.right;
+			node.right = null;
+			size --;
+			return rightNode;
+		}
+
+		node.left = removeMin(node.left);
+		return node;
+	}
+
+	public E removeMax() {
+		E ret = maximum();
+		root = removeMax(root);
+		return ret;
+	}
+	private Node removeMax(Node node) {
+		if( node.right == null ) {
+			Node leftNode = node.left;
+			node.left = null;
+			size --;
+			return leftNode;
+		}
+
+		node.right = removeMax(node.right);
+		return node;
+	}
+
+	public void remove(E elm) {
+		if( size == 0 )
+			throw new IllegalArgumentException("BST is empty!");
+		if( !contains(e) )
+			throw new IllegalArgumentException("elm not found!");
+
+		root = remove(root, e);
+	}
+	private Node remove(Node node, E e) {
+		if( node == null )
+			return null;
+
+		if( node.e.compareTo(e) < 0 ) {
+			node.right = remove(node.right, e);
+			return node;
+		} else if( node.e.compareTo(e) > 0 ) {
+			node.left = remove(node.left, e);
+			return node;
+		} else { // node = 删除节点
+			if( node.left == null ) {
+				Node rightNode = node.right;
+				node.right = null;
+				size --;
+				return rightNode;
+			}
+
+			if( node.right == null ) {
+				Node leftNode = node.left;
+				node.left = null;
+				size --;
+				return leftNode;
+			}
+
+			Node successor = minimum(node.right);
+			successor.right = removeMin(node.right); // 把继任从右子树删除，返回的右子树根节点赋值给继任右节点
+			successor.left = node.left;
+
+			node.right = node.left = null;
+			return successor;
+		}
 	}
 
 	@Override

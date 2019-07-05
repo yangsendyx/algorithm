@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Test {
 	private static double testQueueTime(Queue<Integer> q, int opCount) {
@@ -144,23 +145,62 @@ public class Test {
 	public static void BSTTest() {
 		BST<Integer> bst = new BST<>();
 		int[] nums = {5,3,6,8,4,2};
-		for( int num: nums ) {
+		for( int num: nums )
 			bst.add(num);
-		}
 
+		/*System.out.println("pre order");
 		bst.preOrder();
 		System.out.println();
 
+		System.out.println("pre order not recursive");
 		bst.preOrderNR();
 		System.out.println();
 
-		// System.out.println(bst);
+		System.out.println("level order");
+		bst.levelOrder();
+		System.out.println();
 
-		// bst.inOrder();
-		// System.out.println();
+		System.out.println("in order");
+		bst.inOrder();
+		System.out.println();
 
-		// bst.postOrder();
-		// System.out.println();
+		System.out.println("post order");
+		bst.postOrder();
+		System.out.println();
+
+		System.out.println("print bst");
+		System.out.println(bst);*/
+
+		
+		Random random = new Random();
+		int n = 1000;
+
+		System.out.println("remove min");
+		BST<Integer> bst2 = new BST<>();
+		ArrayList<Integer> nums1 = new ArrayList<>();
+		for( int i=0; i<n; i++ ) 
+			bst2.add( random.nextInt(10000) );
+		while( !bst2.isEmpty() ) 
+			nums1.add( bst2.removeMin() );
+		// System.out.println(nums1);
+		for( int i=1; i<nums1.size(); i++ )
+			if( nums1.get(i-1) > nums1.get(i) )
+				throw new IllegalArgumentException("Error!");
+		System.out.println("removeMin test completed.");
+
+
+		System.out.println("remove max");
+		BST<Integer> bst3 = new BST<>();
+		ArrayList<Integer> nums2 = new ArrayList<>();
+		for( int i=0; i<n; i++ ) 
+			bst3.add( random.nextInt(10000) );
+		while( !bst3.isEmpty() ) 
+			nums2.add( bst3.removeMax() );
+		// System.out.println(nums2);
+		for( int i=1; i<nums2.size(); i++ ) 
+			if( nums2.get(i-1) < nums2.get(i) ) 
+				throw new IllegalArgumentException("Error!");
+		System.out.println("removeMax test completed.");
 	}
 
 	public static void main(String[] args) {

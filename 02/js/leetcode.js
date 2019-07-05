@@ -85,3 +85,75 @@ exports.test203 = (nums, val) => {
     head = num203(head, val);
     console.log("出  " + (head ? head.toString() : head));
 };
+
+exports.test938 = (root, L, R) => {
+    var rangeSumBST = function(root, L, R) {
+        if( !root ) return 0;
+
+        if( root.val < L ) return rangeSumBST(root.right, L, R);
+        if( root.val > R ) return rangeSumBST(root.left, L, R);
+        if( root.val >= L && root.val <= R ) {
+            return root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
+        }
+    };
+};
+// 合并二叉树
+exports.test617 = () => {
+    var mergeTrees = function(t1, t2) {
+        if( !t1 && !t2 ) return null;
+        if( !t1 ) return t2;
+        if( !t2 ) return t1;
+
+        const node = new TreeNode(t1.val + t2.val);
+        node.left = mergeTrees(t1.left, t2.left);
+        node.right = mergeTrees(t1.right, t2.right);
+
+        return node;
+    };
+};
+// 翻转二叉树
+exports.test226 = () => {
+    var invertTree = function(root) {
+        if( !root ) return null;
+
+        const node = new TreeNode(root.val);
+        const lNode = invertTree(root.left);
+        node.right = lNode;
+        const rNode = invertTree(root.right);
+        node.left = rNode;
+
+        return node;
+    };
+};
+// 二叉树最大深度
+exports.test104 = () => {
+    var maxDepth = function(root) {
+        if( !root ) return 0;
+
+        /*let depth = 0;
+        const arr = [];
+
+        root.val = 1;
+        arr.push(root);
+
+        while( arr.length ) {
+            const node = arr.shift();
+            depth = node.val;
+
+            if( node.left ) {
+                node.left.val = depth + 1;
+                arr.push(node.left);
+            }
+            if( node.right ) {
+                node.right.val = depth + 1;
+                arr.push(node.right);
+            }
+        }
+
+        return depth;*/
+
+        const lDepth = maxDepth(root.left);
+        const rDepth = maxDepth(root.right);
+        return Math.max(lDepth, rDepth) + 1;
+    };
+};

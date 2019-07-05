@@ -1,4 +1,5 @@
 const Stack = require('./LinkedStack');
+const Queue = require('./LinkedQueue.js');
 // Binary Search Tree
 class Node {
 	constructor(elm) {
@@ -72,7 +73,7 @@ class BST {
 		this._preOrder(node.left);
 		this._preOrder(node.right);
 	}
-
+	// 非递归前序遍历
 	preOrderNR() {
 		const stack = new Stack();
 		stack.push(this.root);
@@ -100,6 +101,19 @@ class BST {
 		this._postOrder(node.left);
 		this._postOrder(node.right);
 		console.log( node.toString() );
+	}
+
+	levelOrder() {
+		const q = new Queue();
+		q.enqueue(this.root);
+
+		while( !q.isEmpty() ) {
+			const cur = q.dequeue();
+			console.log( cur.toString() );
+
+			if( cur.left != null ) q.enqueue(cur.left);
+			if( cur.right != null ) q.enqueue(cur.right);
+		}
 	}
 
 	toString() {
