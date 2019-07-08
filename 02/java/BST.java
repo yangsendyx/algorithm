@@ -108,7 +108,6 @@ public class BST<E extends Comparable<E>> {
 	public void inOrder() {
 		inOrder(root);
 	}
-
 	private void inOrder(Node node) {
 		if( node == null ) return;
 		inOrder(node.left);
@@ -119,7 +118,6 @@ public class BST<E extends Comparable<E>> {
 	public void postOrder() {
 		postOrder(root);
 	}
-
 	private void postOrder(Node node) {
 		if( node == null ) return;
 		postOrder(node.left);
@@ -203,10 +201,10 @@ public class BST<E extends Comparable<E>> {
 	public void remove(E elm) {
 		if( size == 0 )
 			throw new IllegalArgumentException("BST is empty!");
-		if( !contains(e) )
+		if( !contains(elm) )
 			throw new IllegalArgumentException("elm not found!");
 
-		root = remove(root, e);
+		root = remove(root, elm);
 	}
 	private Node remove(Node node, E e) {
 		if( node == null )

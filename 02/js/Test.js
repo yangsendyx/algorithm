@@ -158,8 +158,8 @@ const BSTTest = () => {
     bst.preOrderNR();
     console.log('\n');*/
 
-    bst.levelOrder();
-    console.log('\n');
+    /*bst.levelOrder();
+    console.log('\n');*/
 
     // console.log(bst.toString());
 
@@ -172,22 +172,24 @@ const BSTTest = () => {
 
 function main() {
     console.log('Start.');
-    // LeetCodeTest();
+    LeetCodeTest();
 
     // ArrayTest();
     // StackTest();
     // QueueTest();
     // LinkedTest();
-    BSTTest();
+    // BSTTest();
 }
 
 function LeetCodeTest() {
     /*leetCode.test20('{[]}');
     leetCode.test20('([)]');*/
 
-    leetCode.test203([1,2,6,3,4,5,6], 6);
+    /*leetCode.test203([1,2,6,3,4,5,6], 6);
     leetCode.test203([1], 1);
-    leetCode.test203([], 1);
+    leetCode.test203([], 1);*/
+
+    
 }
 
 main();

@@ -1,3 +1,4 @@
+const BST = require('./BST');
 
 const num20 = s => {
 	var stack = [];
@@ -155,5 +156,68 @@ exports.test104 = () => {
         const lDepth = maxDepth(root.left);
         const rDepth = maxDepth(root.right);
         return Math.max(lDepth, rDepth) + 1;
+    };
+};
+// 二叉树中序遍历
+exports.test94 = () => {
+    var inorderTraversal = function(root) {
+        /*let numbers = [];
+        if( !root ) return numbers;
+
+        numbers = inorderTraversal(root.left);
+        numbers.push(root.val);
+        numbers = numbers.concat(inorderTraversal(root.right));
+
+        return numbers;*/
+
+        if( !root ) return [];
+
+        const arr = [];
+        const numbers = [];
+        arr.push( root );
+
+        let cur = root;
+        while( arr.length ) {
+            if( !cur ) {
+                const node = arr.pop();
+                numbers.push( node.val );
+
+                cur = node.right;
+                if( cur ) arr.push(cur);
+            } else {
+                cur = cur.left;
+                if( cur ) arr.push(cur);
+            }
+        }
+
+        return numbers;
+    };
+};
+// 二叉树层次遍历
+exports.test107 = () => {
+    var levelOrderBottom = function(root) {
+        if( !root ) return [];
+
+        root.depth = 0;
+        const arr = [root];
+        const numbers = [[]];
+
+        while( arr.length ) {
+            const node = arr.shift();
+            numbers[node.depth].push(node.val);
+
+            const index = node.depth + 1;
+            if( !numbers[index] && (node.left || node.right) ) numbers[index] = [];
+
+            if( node.left ) {
+                node.left.depth = index;
+                arr.push(node.left);
+            }
+            if( node.right ) {
+                node.right.depth = index;
+                arr.push(node.right);
+            }
+        }
+        return numbers.reverse();
     };
 };
