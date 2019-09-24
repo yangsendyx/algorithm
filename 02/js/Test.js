@@ -6,6 +6,8 @@ const Linked = require('./Linked');
 const LinkedStack = require('./LinkedStack');
 const LinkedQueue = require('./LinkedQueue');
 const BST = require('./BST');
+const BSTSet = require('./BSTSet');
+const FileOperation = require('./FileOperation');
 
 const leetCode = require('./leetcode');
 
@@ -170,15 +172,38 @@ const BSTTest = () => {
     // console.log('\n');
 };
 
+const BSTSetTest = async () => {
+    const basePath = `${__dirname}/../build`;
+
+    console.log('Pride and Prejudice');
+    const words1 = await FileOperation(`${basePath}/pride-and-prejudice.txt`);
+    if( words1 ) {
+        console.log('Total words: ', words1.length);
+        const set1 = new BSTSet();
+        words1.forEach(word => set1.add(word));
+        console.log('Total different words: ', set1.getSize());
+    }
+
+    console.log('\nA Tale of Two Cities');
+    const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
+    if( words2 ) {
+        console.log('Total words: ', words2.length);
+        const set2 = new BSTSet();
+        words2.forEach(word => set2.add(word));
+        console.log('Total different words: ', set2.getSize());
+    }
+};
+
 function main() {
     console.log('Start.');
-    LeetCodeTest();
+    // LeetCodeTest();
 
     // ArrayTest();
     // StackTest();
     // QueueTest();
     // LinkedTest();
     // BSTTest();
+    BSTSetTest();
 }
 
 function LeetCodeTest() {
@@ -188,8 +213,6 @@ function LeetCodeTest() {
     /*leetCode.test203([1,2,6,3,4,5,6], 6);
     leetCode.test203([1], 1);
     leetCode.test203([], 1);*/
-
-    
 }
 
 main();
