@@ -184,10 +184,10 @@ const BSTSetTest = async () => {
         const set1 = new BSTSet();
         words1.forEach(word => set1.add(word));
         console.log('Total different words:', set1.getSize());
-        console.log(`执行耗时${(Date.now()-time1)/1000}s`);
+        console.log(`执行耗时: ${(Date.now()-time1)/1000}s`);
     }
 
-    /* console.log('\nBSTSetTest: A Tale of Two Cities');
+    console.log('\nBSTSetTest: A Tale of Two Cities');
     const time2 = Date.now();
     const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
     if( words2 ) {
@@ -195,8 +195,8 @@ const BSTSetTest = async () => {
         const set2 = new BSTSet();
         words2.forEach(word => set2.add(word));
         console.log('Total different words:', set2.getSize());
-        console.log(`执行耗时${(Date.now()-time2)/1000}s`);
-    } */
+        console.log(`执行耗时: ${(Date.now()-time2)/1000}s`);
+    }
 };
 
 const LinkedSetTest = async () => {
@@ -210,10 +210,10 @@ const LinkedSetTest = async () => {
         const set1 = new LinkedSet();
         words1.forEach(word => set1.add(word));
         console.log('Total different words:', set1.getSize());
-        console.log(`执行耗时${(Date.now()-time1)/1000}s`);
+        console.log(`执行耗时: ${(Date.now()-time1)/1000}s`);
     }
 
-    /* console.log('\nLinkedSetTest: A Tale of Two Cities');
+    console.log('\nLinkedSetTest: A Tale of Two Cities');
     const time2 = Date.now();
     const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
     if( words2 ) {
@@ -221,8 +221,8 @@ const LinkedSetTest = async () => {
         const set2 = new LinkedSet();
         words2.forEach(word => set2.add(word));
         console.log('Total different words:', set2.getSize());
-        console.log(`执行耗时${(Date.now()-time2)/1000}s`);
-    } */
+        console.log(`执行耗时: ${(Date.now()-time2)/1000}s`);
+    }
 };
 
 async function main() {

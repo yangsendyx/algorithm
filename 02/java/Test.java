@@ -217,7 +217,7 @@ public class Test {
 			System.out.println("执行耗时: "+(System.nanoTime()-time1)/1000000000.0+"s");
         }
 
-        /* System.out.println("\nnBSTSetTest: A Tale of Two Cities");
+        System.out.println("\nnBSTSetTest: A Tale of Two Cities");
 		long time2 = System.nanoTime();
         ArrayList<String> words2 = new ArrayList<>();
         if(FileOperation.readFile(basePath+"/a-tale-of-two-cities.txt", words2)) {
@@ -226,7 +226,7 @@ public class Test {
             for(String word: words2) set2.add(word);
 			System.out.println("Total different words: " + set2.getSize());
 			System.out.println("执行耗时: "+(System.nanoTime()-time2)/1000000000.0+"s");
-		} */
+		}
 	}
 
 	public static void LinkedListSetTest() {
@@ -243,7 +243,7 @@ public class Test {
 			System.out.println("执行耗时: "+(System.nanoTime()-time1)/1000000000.0+"s");
 		}
 
-        /* System.out.println("\nLinkedListSetTest: A Tale of Two Cities");
+        System.out.println("\nLinkedListSetTest: A Tale of Two Cities");
 		long time2 = System.nanoTime();
         ArrayList<String> words2 = new ArrayList<>();
         if(FileOperation.readFile(basePath+"/a-tale-of-two-cities.txt", words2)) {
@@ -252,7 +252,7 @@ public class Test {
             for(String word: words2) set2.add(word);
             System.out.println("Total different words: " + set2.getSize());
 			System.out.println("执行耗时: "+(System.nanoTime()-time2)/1000000000.0+"s");
-		} */
+		}
 	}
 
 	public static void main(String[] args) {

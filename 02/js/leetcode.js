@@ -86,7 +86,7 @@ exports.test203 = (nums, val) => {
     head = num203(head, val);
     console.log("出  " + (head ? head.toString() : head));
 };
-export const num804 = words => {
+exports.num804 = words => {
     const set = new Set();
     const baseNum = 'a'.charCodeAt();
     const codes = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."];
