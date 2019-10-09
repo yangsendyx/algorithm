@@ -173,24 +173,24 @@ const BSTTest = () => {
 };
 
 const BSTSetTest = async () => {
-    const basePath = `${__dirname}/../build`;
+    const basePath = `${__dirname}/../assets`;
 
     console.log('Pride and Prejudice');
     const words1 = await FileOperation(`${basePath}/pride-and-prejudice.txt`);
     if( words1 ) {
-        console.log('Total words: ', words1.length);
+        console.log('Total words:', words1.length);
         const set1 = new BSTSet();
         words1.forEach(word => set1.add(word));
-        console.log('Total different words: ', set1.getSize());
+        console.log('Total different words:', set1.getSize());
     }
 
     console.log('\nA Tale of Two Cities');
     const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
     if( words2 ) {
-        console.log('Total words: ', words2.length);
+        console.log('Total words:', words2.length);
         const set2 = new BSTSet();
         words2.forEach(word => set2.add(word));
-        console.log('Total different words: ', set2.getSize());
+        console.log('Total different words:', set2.getSize());
     }
 };
 
