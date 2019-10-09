@@ -86,6 +86,18 @@ exports.test203 = (nums, val) => {
     head = num203(head, val);
     console.log("出  " + (head ? head.toString() : head));
 };
+export const num804 = words => {
+    const set = new Set();
+    const baseNum = 'a'.charCodeAt();
+    const codes = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."];
+
+    for(let word of words) {
+        const res = [];
+        word.split('').forEach(letter => res.push(codes[letter.charCodeAt()-baseNum]));
+        set.add(res.join(''));
+    }
+    return set.size;
+};
 
 exports.test938 = (root, L, R) => {
     var rangeSumBST = function(root, L, R) {

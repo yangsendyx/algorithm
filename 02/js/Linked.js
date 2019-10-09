@@ -27,23 +27,22 @@ class Linked {
 		if( index < 0 || index > this._size ) throw this.error('Add failed. Index is illegal.');
 
 		let prev = this._dummyHead;
-		for( let i=0; i<index; i++ ) {
-			prev = prev.next;
-		}
-
+		for( let i=0; i<index; i++ ) prev = prev.next;
 		prev.next = new Node(elm, prev.next);
 		this._size ++;
 	}
 
 	removeFirst() { return this.remove(0); }
 	removeLast() { return this.remove(this._size - 1); }
+	removeElement(elm) {
+		const index = this.getIndex(elm);
+		if( index >= 0 ) this.remove(index);
+	}
 	remove(index) {
 		if( index < 0 || index > this._size ) throw this.error('Remove failed. Index is illegal.');
 
 		let prev = this._dummyHead;
-		for( let i=0; i<index; i++ ) {
-			prev = prev.next;
-		}
+		for( let i=0; i<index; i++ ) prev = prev.next;
 
 		const delNode = prev.next;
 		prev.next = delNode.next;
@@ -80,12 +79,19 @@ class Linked {
 		cur.elm = elm;
 	}
 	contains(elm) {
+		const index = this.getIndex(elm);
+		return index >= 0;
+	}
+	getIndex(elm) {
 		let cur = this._dummyHead.next;
-		while( cur.elm !== null ) {
-			if( cur.elm === elm ) return true;
+		let index = 0;
+		while( cur !== null ) {
+			if( cur.elm === elm ) return index;
+			cur = cur.next;
+			index++;
 		}
 
-		return false;
+		return -1;
 	}
 
 	toString() {

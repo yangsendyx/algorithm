@@ -1,3 +1,5 @@
+import java.util.TreeSet;
+
 public class LeetCode {
 	public LeetCode() {}
 
@@ -95,5 +97,20 @@ public class LeetCode {
 		System.out.println("入  " + head + "  删除" + val);
 		head = num203(head, val);
 		System.out.println("出  " + head);
+	}
+
+	public int num804(String[] words) {
+		TreeSet<String> set = new TreeSet<>();
+		String[] codes = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+
+		for(String word : words) {
+			StringBuilder res = new StringBuilder();
+			for(int i=0; i<word.length(); i++) {
+				res.append(codes[word.charAt(i) - 'a']);
+			}
+			set.add(res.toString());
+		}
+
+		return set.size();
 	}
 }

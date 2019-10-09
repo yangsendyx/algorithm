@@ -8,6 +8,7 @@ const LinkedQueue = require('./LinkedQueue');
 const BST = require('./BST');
 const BSTSet = require('./BSTSet');
 const FileOperation = require('./FileOperation');
+const LinkedSet = require('./LinkedSet');
 
 const leetCode = require('./leetcode');
 
@@ -175,26 +176,56 @@ const BSTTest = () => {
 const BSTSetTest = async () => {
     const basePath = `${__dirname}/../assets`;
 
-    console.log('Pride and Prejudice');
+    console.log('\nBSTSetTest: Pride and Prejudice');
+    const time1 = Date.now();
     const words1 = await FileOperation(`${basePath}/pride-and-prejudice.txt`);
     if( words1 ) {
         console.log('Total words:', words1.length);
         const set1 = new BSTSet();
         words1.forEach(word => set1.add(word));
         console.log('Total different words:', set1.getSize());
+        console.log(`执行耗时${(Date.now()-time1)/1000}s`);
     }
 
-    console.log('\nA Tale of Two Cities');
+    /* console.log('\nBSTSetTest: A Tale of Two Cities');
+    const time2 = Date.now();
     const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
     if( words2 ) {
         console.log('Total words:', words2.length);
         const set2 = new BSTSet();
         words2.forEach(word => set2.add(word));
         console.log('Total different words:', set2.getSize());
-    }
+        console.log(`执行耗时${(Date.now()-time2)/1000}s`);
+    } */
 };
 
-function main() {
+const LinkedSetTest = async () => {
+    const basePath = `${__dirname}/../assets`;
+
+    console.log('\nLinkedSetTest: Pride and Prejudice');
+    const time1 = Date.now();
+    const words1 = await FileOperation(`${basePath}/pride-and-prejudice.txt`);
+    if( words1 ) {
+        console.log('Total words:', words1.length);
+        const set1 = new LinkedSet();
+        words1.forEach(word => set1.add(word));
+        console.log('Total different words:', set1.getSize());
+        console.log(`执行耗时${(Date.now()-time1)/1000}s`);
+    }
+
+    /* console.log('\nLinkedSetTest: A Tale of Two Cities');
+    const time2 = Date.now();
+    const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
+    if( words2 ) {
+        console.log('Total words:', words2.length);
+        const set2 = new LinkedSet();
+        words2.forEach(word => set2.add(word));
+        console.log('Total different words:', set2.getSize());
+        console.log(`执行耗时${(Date.now()-time2)/1000}s`);
+    } */
+};
+
+async function main() {
     console.log('Start.');
     // LeetCodeTest();
 
@@ -203,7 +234,8 @@ function main() {
     // QueueTest();
     // LinkedTest();
     // BSTTest();
-    BSTSetTest();
+    await BSTSetTest();
+    await LinkedSetTest();
 }
 
 function LeetCodeTest() {

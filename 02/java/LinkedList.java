@@ -48,6 +48,10 @@ public class LinkedList<E> {
 
 	public E removeFirst() { return remove(0); }
 	public E removeLast() { return remove(size-1); }
+	public void removeElement(E e) {
+		int index = getIndex(e);
+		if( index >= 0 ) remove(index);
+	}
 	public E remove(int index) {
 		if( index < 0 || index > size ) {
 			throw new IllegalArgumentException("Remove failed. Index is illegal.");
@@ -92,13 +96,20 @@ public class LinkedList<E> {
 		cur.e = e;
 	}
 	public boolean contains(E e) {
+		int index = getIndex(e);
+		return index >= 0;
+	}
+	public int getIndex(E e) {
 		Node cur = dummyHead.next;
+		int index = 0;
+	
 		while(cur != null) {
-			if( cur.e == e ) return true;
+			if( e.equals(cur.e) ) return index;
 			cur = cur.next;
+			index ++;
 		}
-
-		return false;
+		
+		return -1;
 	}
 
 	@Override
