@@ -277,13 +277,13 @@ public class Test {
 			System.out.println("执行耗时: "+(System.nanoTime()-time1)/1000000000.0+"s");
         }
 
-        /* System.out.println("\nBSTMapTest: A Tale of Two Cities");
+        System.out.println("\nBSTMapTest: A Tale of Two Cities");
 		long time2 = System.nanoTime();
         ArrayList<String> words2 = new ArrayList<>();
         if(FileOperation.readFile(basePath+"/a-tale-of-two-cities.txt", words2)) {
             System.out.println("Total words: " + words2.size());
             BSTMap<String, Integer> map2 = new BSTMap<>();
-			for (String word : words1) {
+			for (String word : words2) {
 				if( map2.contains(word) ) {
 					map2.set(word, map2.get(word)+1);
 				} else {
@@ -293,7 +293,7 @@ public class Test {
 			System.out.println("Total different words: " + map2.getSize());
 			System.out.println("Frequency of CITY: " + map2.get("city"));
 			System.out.println("执行耗时: "+(System.nanoTime()-time2)/1000000000.0+"s");
-		} */
+		}
 	}
 
 	public static void LinkedListMapTEST() {
@@ -318,7 +318,7 @@ public class Test {
 			System.out.println("执行耗时: "+(System.nanoTime()-time1)/1000000000.0+"s");
 		}
 
-		/* System.out.println("\nLinkedListMapTest: A Tale of Two Cities");
+		System.out.println("\nLinkedListMapTest: A Tale of Two Cities");
 		long time2 = System.nanoTime();
         ArrayList<String> words2 = new ArrayList<>();
         if(FileOperation.readFile(basePath+"/a-tale-of-two-cities.txt", words2)) {
@@ -334,7 +334,7 @@ public class Test {
             System.out.println("Total different words: " + map2.getSize());
 			System.out.println("Frequency of CITY: " + map2.get("city"));
 			System.out.println("执行耗时: "+(System.nanoTime()-time2)/1000000000.0+"s");
-		} */
+		}
 	}
 
 	public static void main(String[] args) {
@@ -348,7 +348,7 @@ public class Test {
 		// BSTTest();
 		// BSTSetTest();
 		// LinkedListSetTest();
-		BSTMapTest();
+		// BSTMapTest();
 		// LinkedListMapTEST();
 	}
 

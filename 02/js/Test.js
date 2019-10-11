@@ -243,14 +243,14 @@ const BSTMapTest = async () => {
                 map1.add(word, 1);
             }
         }
-        console.log( JSON.stringify(map1, null, 4) );
+        // console.log( JSON.stringify(map1, null, 4) );
         console.log('Total different words:', map1.getSize());
-        console.log('Frequency of PRIDE:', map1.get("the", true));
+        console.log('Frequency of PRIDE:', map1.get("pride", true));
         console.log('Frequency of PREJUDICE:', map1.get("prejudice"));
         console.log(`执行耗时: ${(Date.now()-time1)/1000}s`);
     }
 
-    /* console.log('\nBSTMapTest: A Tale of Two Cities');
+    console.log('\nBSTMapTest: A Tale of Two Cities');
     const time2 = Date.now();
     const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
     if( words2 ) {
@@ -266,13 +266,13 @@ const BSTMapTest = async () => {
         console.log('Total different words:', map2.getSize());
         console.log('Frequency of CITY:', map2.get("city"));
         console.log(`执行耗时: ${(Date.now()-time2)/1000}s`);
-    } */
+    }
 };
 
 const LinkedMapTest = async () => {
     const basePath = `${__dirname}/../assets`;
 
-    console.log('\nLinkedSetTest: Pride and Prejudice');
+    console.log('\nLinkedMapTest: Pride and Prejudice');
     const time1 = Date.now();
     const words1 = await FileOperation(`${basePath}/pride-and-prejudice.txt`);
     if( words1 ) {
@@ -291,7 +291,7 @@ const LinkedMapTest = async () => {
         console.log(`执行耗时: ${(Date.now()-time1)/1000}s`);
     }
 
-    /* console.log('\nLinkedSetTest: A Tale of Two Cities');
+    console.log('\nLinkedMapTest: A Tale of Two Cities');
     const time2 = Date.now();
     const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
     if( words2 ) {
@@ -307,7 +307,7 @@ const LinkedMapTest = async () => {
         console.log('Total different words:', map2.getSize());
         console.log('Frequency of CITY:', map2.get("city"));
         console.log(`执行耗时: ${(Date.now()-time2)/1000}s`);
-    } */
+    }
 };
 
 async function main() {
@@ -321,7 +321,7 @@ async function main() {
     // BSTTest();
     // await BSTSetTest();
     // await LinkedSetTest();
-    await BSTMapTest();
+    // await BSTMapTest();
     // await LinkedMapTest();
 }
 

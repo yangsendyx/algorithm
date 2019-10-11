@@ -31,7 +31,7 @@ class BSTMap {
         } else if( compareRes > 0 ) {
 			return this.getNode(node.right, key, compare);
 		} else {
-			return this.getNode(node.right, key, compare);
+			return this.getNode(node.left, key, compare);
 		}
     }
 
@@ -42,7 +42,7 @@ class BSTMap {
     get(key, log) { return ((this.getNode(this.root, key) || {}).value || null); }
     set(key, value) {
         const node = this.getNode(this.root, key);
-        if( !node ) console.warn(`${key} doesn't exist!`);
+        if( !node ) return console.warn(`${key} doesn't exist!`);
         node.value = value;
     }
 

@@ -18,8 +18,9 @@ program
 .description('编译[c++|java]程序并执行, name 参数为 [cpp|java] 文件名称或路径，基于 [cpp|java] 目录，js 参数为是否同时执行 javascript 版本')
 .option('-j, --justJS', '仅执行js版本')
 .action((name, js, options) => {
-	const execJs = typeof js === 'string';
-
+    const execJs = typeof js === 'string';
+    if( !options && typeof js === 'object' ) options = js;
+    
 	// const path = `${cppBase}${name}.cpp`;
     const path = `${javaBase}${name}.java`;
 	const jsPath = `${jsBase}${name}.js`;
