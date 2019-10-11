@@ -255,6 +255,88 @@ public class Test {
 		}
 	}
 
+	public static void BSTMapTest() {
+		String basePath = "../assets";
+
+		System.out.println("\nBSTMapTest: Pride and Prejudice");
+		long time1 = System.nanoTime();
+        ArrayList<String> words1 = new ArrayList<>();
+        if(FileOperation.readFile(basePath+"/pride-and-prejudice.txt", words1)) {
+            System.out.println("Total words: " + words1.size());
+            BSTMap<String, Integer> map1 = new BSTMap<>();
+			for (String word : words1) {
+				if( map1.contains(word) ) {
+					map1.set(word, map1.get(word)+1);
+				} else {
+					map1.add(word, 1);
+				}
+			}
+			System.out.println("Total different words: " + map1.getSize());
+			System.out.println("Frequency of PRIDE: " + map1.get("pride"));
+			System.out.println("Frequency of PREJUDICE: " + map1.get("prejudice"));
+			System.out.println("执行耗时: "+(System.nanoTime()-time1)/1000000000.0+"s");
+        }
+
+        /* System.out.println("\nBSTMapTest: A Tale of Two Cities");
+		long time2 = System.nanoTime();
+        ArrayList<String> words2 = new ArrayList<>();
+        if(FileOperation.readFile(basePath+"/a-tale-of-two-cities.txt", words2)) {
+            System.out.println("Total words: " + words2.size());
+            BSTMap<String, Integer> map2 = new BSTMap<>();
+			for (String word : words1) {
+				if( map2.contains(word) ) {
+					map2.set(word, map2.get(word)+1);
+				} else {
+					map2.add(word, 1);
+				}
+			}
+			System.out.println("Total different words: " + map2.getSize());
+			System.out.println("Frequency of CITY: " + map2.get("city"));
+			System.out.println("执行耗时: "+(System.nanoTime()-time2)/1000000000.0+"s");
+		} */
+	}
+
+	public static void LinkedListMapTEST() {
+		String basePath = "../assets";
+
+		System.out.println("\nLinkedListMapTest: Pride and Prejudice");
+		long time1 = System.nanoTime();
+		ArrayList<String> words1 = new ArrayList<>();
+        if( FileOperation.readFile(basePath+"/pride-and-prejudice.txt", words1) ) {
+			System.out.println("Total words: " + words1.size());
+			LinkedListMap<String, Integer> map1 = new LinkedListMap<>();
+			for (String word : words1) {
+				if( map1.contains(word) ) {
+					map1.set(word, map1.get(word)+1);
+				} else {
+					map1.add(word, 1);
+				}
+			}
+			System.out.println("Total different words: " + map1.getSize());
+			System.out.println("Frequency of PRIDE: " + map1.get("pride"));
+			System.out.println("Frequency of PREJUDICE: " + map1.get("prejudice"));
+			System.out.println("执行耗时: "+(System.nanoTime()-time1)/1000000000.0+"s");
+		}
+
+		/* System.out.println("\nLinkedListMapTest: A Tale of Two Cities");
+		long time2 = System.nanoTime();
+        ArrayList<String> words2 = new ArrayList<>();
+        if(FileOperation.readFile(basePath+"/a-tale-of-two-cities.txt", words2)) {
+            System.out.println("Total words: " + words2.size());
+            LinkedListMap<String, Integer> map2 = new LinkedListMap<>();
+            for (String word : words2) {
+				if( map2.contains(word) ) {
+					map2.set(word, map2.get(word)+1);
+				} else {
+					map2.add(word, 1);
+				}
+			}
+            System.out.println("Total different words: " + map2.getSize());
+			System.out.println("Frequency of CITY: " + map2.get("city"));
+			System.out.println("执行耗时: "+(System.nanoTime()-time2)/1000000000.0+"s");
+		} */
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Start.");
 		// LeetCodeTest();
@@ -264,8 +346,10 @@ public class Test {
 		// QueueTest();
 		// LinkedTest();
 		// BSTTest();
-		BSTSetTest();
-		LinkedListSetTest();
+		// BSTSetTest();
+		// LinkedListSetTest();
+		BSTMapTest();
+		// LinkedListMapTEST();
 	}
 
 	public static void LeetCodeTest() {

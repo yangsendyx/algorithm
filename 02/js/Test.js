@@ -6,9 +6,11 @@ const Linked = require('./Linked');
 const LinkedStack = require('./LinkedStack');
 const LinkedQueue = require('./LinkedQueue');
 const BST = require('./BST');
-const BSTSet = require('./BSTSet');
 const FileOperation = require('./FileOperation');
+const BSTSet = require('./BSTSet');
 const LinkedSet = require('./LinkedSet');
+const BSTMap = require('./BSTMap');
+const LinkedMap = require('./LinkedMap');
 
 const leetCode = require('./leetcode');
 
@@ -225,6 +227,89 @@ const LinkedSetTest = async () => {
     }
 };
 
+const BSTMapTest = async () => {
+    const basePath = `${__dirname}/../assets`;
+
+    console.log('\nBSTMapTest: Pride and Prejudice');
+    const time1 = Date.now();
+    const words1 = await FileOperation(`${basePath}/pride-and-prejudice.txt`);
+    if( words1 ) {
+        console.log('Total words:', words1.length);
+        const map1 = new BSTMap();
+        for( word of words1 ) {
+            if( map1.contains(word) ) {
+                map1.set(word, map1.get(word)+1);
+            } else {
+                map1.add(word, 1);
+            }
+        }
+        console.log( JSON.stringify(map1, null, 4) );
+        console.log('Total different words:', map1.getSize());
+        console.log('Frequency of PRIDE:', map1.get("the", true));
+        console.log('Frequency of PREJUDICE:', map1.get("prejudice"));
+        console.log(`执行耗时: ${(Date.now()-time1)/1000}s`);
+    }
+
+    /* console.log('\nBSTMapTest: A Tale of Two Cities');
+    const time2 = Date.now();
+    const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
+    if( words2 ) {
+        console.log('Total words:', words2.length);
+        const map2 = new BSTMap();
+        for( word of words2 ) {
+            if( map2.contains(word) ) {
+                map2.set(word, map2.get(word)+1);
+            } else {
+                map2.add(word, 1);
+            }
+        }
+        console.log('Total different words:', map2.getSize());
+        console.log('Frequency of CITY:', map2.get("city"));
+        console.log(`执行耗时: ${(Date.now()-time2)/1000}s`);
+    } */
+};
+
+const LinkedMapTest = async () => {
+    const basePath = `${__dirname}/../assets`;
+
+    console.log('\nLinkedSetTest: Pride and Prejudice');
+    const time1 = Date.now();
+    const words1 = await FileOperation(`${basePath}/pride-and-prejudice.txt`);
+    if( words1 ) {
+        console.log('Total words:', words1.length);
+        const map1 = new LinkedMap();
+        for( word of words1 ) {
+            if( map1.contains(word) ) {
+                map1.set(word, map1.get(word)+1);
+            } else {
+                map1.add(word, 1);
+            }
+        }
+        console.log('Total different words:', map1.getSize());
+        console.log('Frequency of PRIDE:', map1.get("pride"));
+        console.log('Frequency of PREJUDICE:', map1.get("prejudice"));
+        console.log(`执行耗时: ${(Date.now()-time1)/1000}s`);
+    }
+
+    /* console.log('\nLinkedSetTest: A Tale of Two Cities');
+    const time2 = Date.now();
+    const words2 = await FileOperation(`${basePath}/a-tale-of-two-cities.txt`);
+    if( words2 ) {
+        console.log('Total words:', words2.length);
+        const map2 = new LinkedMap();
+        for( word of words2 ) {
+            if( map2.contains(word) ) {
+                map2.set(word, map2.get(word)+1);
+            } else {
+                map2.add(word, 1);
+            }
+        }
+        console.log('Total different words:', map2.getSize());
+        console.log('Frequency of CITY:', map2.get("city"));
+        console.log(`执行耗时: ${(Date.now()-time2)/1000}s`);
+    } */
+};
+
 async function main() {
     console.log('Start.');
     // LeetCodeTest();
@@ -234,8 +319,10 @@ async function main() {
     // QueueTest();
     // LinkedTest();
     // BSTTest();
-    await BSTSetTest();
-    await LinkedSetTest();
+    // await BSTSetTest();
+    // await LinkedSetTest();
+    await BSTMapTest();
+    // await LinkedMapTest();
 }
 
 function LeetCodeTest() {
