@@ -98,6 +98,31 @@ exports.num804 = words => {
     }
     return set.size;
 };
+exports.num349 = (nums1, nums2) => {
+    const set = new Set(nums1);
+    const res = [];
+    for( let num of nums2 ) {
+        if( set.has(num) ) {
+            res.push(num);
+            set.delete(num);
+        }
+    }
+    return res;
+};
+exports.num450 = (nums1, nums2) => {
+    const map = new Map();
+    const res = [];
+    for( let num of nums1 ) map.set(num, map.has(num) ? map.get(num)+1 : 1);
+    for( let num of nums2 ) {
+        if( map.has(num) ) {
+            res.push(num);
+            const val = map.get(num);
+            val === 1 ? map.delete(num) : map.set(num, val-1);
+        }
+    }
+
+    return res;
+};
 
 exports.test938 = (root, L, R) => {
     var rangeSumBST = function(root, L, R) {

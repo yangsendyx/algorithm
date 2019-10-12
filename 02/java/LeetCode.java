@@ -1,4 +1,7 @@
 import java.util.TreeSet;
+import java.util.TreeMap;
+import java.util.ArrayList;
+
 
 public class LeetCode {
 	public LeetCode() {}
@@ -113,4 +116,46 @@ public class LeetCode {
 
 		return set.size();
 	}
+
+	public int[] num349(int[] nums1, int[] nums2) {
+		TreeSet<Integer> set = new TreeSet<>();
+		for( int num : nums1 ) set.add(num);
+
+		ArrayList<Integer> list = new ArrayList<>();
+		for( int num : nums2 ) {
+			if( set.contains(num) ) {
+				list.add(num);
+				set.remove(num);
+			}
+		}
+
+		int size = list.size();
+		int[] res = new int[size];
+		for( int i=0; i<size; i++ ) res[i] = list.get(i);
+
+		return res;
+	}
+	
+	public int[] num350(int[] nums1, int[] nums2) {
+		TreeMap<Integer, Integer> map = new TreeMap<>();
+		for( int num : nums1 ) {
+			int val = map.containsKey(num) ? map.get(num)+1 : 1;
+			map.put(num, val);
+		}
+
+		ArrayList<Integer> list = new ArrayList<>();
+		for( int num : nums2 ) {
+			if( map.containsKey(num) ) {
+				list.add(num);
+				map.put(num, map.get(num) - 1);
+				if( map.get(num) == 0 ) map.remove(num);
+			}
+		}
+
+		int size = list.size();
+		int[] res = new int[size];
+		for( int i=0; i<size; i++ ) res[i] = list.get(i);
+
+		return res;
+    }
 }
