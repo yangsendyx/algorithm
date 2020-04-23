@@ -11,6 +11,7 @@ const BSTSet = require('./BSTSet');
 const LinkedSet = require('./LinkedSet');
 const BSTMap = require('./BSTMap');
 const LinkedMap = require('./LinkedMap');
+const MaxHeap = require('./MaxHeap');
 
 const leetCode = require('./leetcode');
 
@@ -310,6 +311,64 @@ const LinkedMapTest = async () => {
     }
 };
 
+const MaxHeapTimeTest = (data, isHeapify) => {
+    const t1 = Date.now();
+    let maxHeap;
+
+    if( isHeapify ) {
+        maxHeap = new MaxHeap(data);
+    } else {
+        maxHeap = new MaxHeap();
+        for( let num of data ) maxHeap.add(num);
+    }
+
+    const n = data.length;
+    const arr = [];
+    for( let i=0; i<n; i++ ) {
+        arr[i] = maxHeap.extractMax();
+    }
+
+    for( let i=1; i<n; i++ ) {
+        if( arr[i-1] < arr[i] ) {
+            throw new Error("Error.");
+        }
+    }
+
+    const t2 = Date.now();
+    return (t2 - t1);
+}
+const MaxHeapTest = async () => {
+    const maxHeap = new MaxHeap();
+    const n = 1000000;
+
+    for( let i=0; i<n; i++ ) {
+        maxHeap.add( parseInt(Math.random()*n) );
+    }
+
+    const arr = [];
+    for( let i=0; i<n; i++ ) {
+        arr[i] = maxHeap.extractMax();
+    }
+
+    for( let i=1; i<n; i++ ) {
+        if( arr[i-1] < arr[i] ) {
+            throw new Error("Error.");
+        }
+    }
+
+    console.log("Test MaxHeap completed.");
+
+    const data = [];
+    for( let i=0; i<n; i++ ) {
+        data[i] = parseInt(Math.random()*n);
+    }
+
+    const t1 = MaxHeapTimeTest(data, false);
+    console.log(`Without heapify time: ${t1/1000}s`);
+    const t2 = MaxHeapTimeTest(data, true);
+    console.log(`With heapify time: ${t2/1000}s`);
+};
+
 async function main() {
     console.log('Start.');
     // LeetCodeTest();
@@ -323,6 +382,7 @@ async function main() {
     // await LinkedSetTest();
     // await BSTMapTest();
     // await LinkedMapTest();
+    await MaxHeapTest();
 }
 
 function LeetCodeTest() {

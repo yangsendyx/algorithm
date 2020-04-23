@@ -337,6 +337,66 @@ public class Test {
 		}
 	}
 
+	private static double MaxHeapTimeTest(Integer[] data, boolean isHeapify) {
+		long startTime = System.nanoTime();
+
+		MaxHeap<Integer> maxHeap;
+		if( isHeapify ) {
+			maxHeap = new MaxHeap<>(data);
+		} else {
+			maxHeap = new MaxHeap<>();
+			for( int num : data ) {
+				maxHeap.add(num);
+			}
+		}
+
+		int n = data.length;
+		int[] arr = new int[n];
+		for( int i=0; i<n; i++ ) {
+			arr[i] = maxHeap.extractMax();
+		}
+
+		for( int i=1; i<n; i++ ) {
+			if( arr[i-1] < arr[i] ) {
+				throw new IllegalArgumentException("Error.");
+			}
+		}
+
+		long endTime = System.nanoTime();
+		return ( endTime - startTime ) / 1000000000.0;
+	}
+	public static void MaxHeapTEST() {
+		MaxHeap<Integer> maxHeap = new MaxHeap<>();
+		int n = 1000000;
+		Random random = new Random();
+		for( int i=0; i<n; i++ ) {
+			maxHeap.add( random.nextInt(Integer.MAX_VALUE) );
+		}
+
+		int[] arr = new int[n];
+		for( int i=0; i<n; i++ ) {
+			arr[i] = maxHeap.extractMax();
+		}
+
+		for( int i=1; i<n; i++ ) {
+			if( arr[i-1] < arr[i] ) {
+				throw new IllegalArgumentException("Error.");
+			}
+		}
+
+		System.out.println("Test MaxHeap completed.");
+
+		Integer[] data = new Integer[n];
+		for( int i=0; i<n; i++ ) {
+			data[i] = random.nextInt(Integer.MAX_VALUE);
+		}
+
+		double time1 = MaxHeapTimeTest(data, false);
+		System.out.println("Without heapify time: " + time1 + "s");
+		double time2 = MaxHeapTimeTest(data, true);
+		System.out.println("With heapify time: " + time2 + "s");
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Start.");
 		// LeetCodeTest();
@@ -350,6 +410,7 @@ public class Test {
 		// LinkedListSetTest();
 		// BSTMapTest();
 		// LinkedListMapTEST();
+		MaxHeapTEST();
 	}
 
 	public static void LeetCodeTest() {

@@ -10,9 +10,9 @@ public class LinkedList<E> {
 			this.next = next;
 		}
 
-		public Node(E e) { this(e, null); }
+		// public Node(E e) { this(e, null); }
 
-		public Node() { this(null, null); }
+		// public Node() { this(null, null); }
 
 		@Override
 		public String toString() {

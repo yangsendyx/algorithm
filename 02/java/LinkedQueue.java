@@ -11,7 +11,7 @@ public class LinkedQueue<E> implements Queue<E> {
 
 		public Node(E e) { this(e, null); }
 
-		public Node() { this(null, null); }
+		// public Node() { this(null, null); }
 
 		@Override
 		public String toString() {

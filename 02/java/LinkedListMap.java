@@ -11,7 +11,7 @@ public class LinkedListMap<K, V> implements Map<K, V> {
 			this.next = next;
 		}
 
-		public Node(K key) { this(key, null, null); }
+		// public Node(K key) { this(key, null, null); }
 
 		public Node() { this(null, null, null); }
 

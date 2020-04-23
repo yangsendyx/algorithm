@@ -1,8 +1,11 @@
-
+const SArray = global.Array;
 class Array {
-
-	constructor() {
-		this._data = [];
+	constructor(arr) {
+		if( arr && SArray.isArray(arr) ) {
+			this._data = arr;
+		} else {
+			this._data = [];	
+		}
 	}
 
 	error(message) { return new Error(message); }
@@ -61,6 +64,12 @@ class Array {
 
 		this.remove(index);
 		return true;
+	}
+
+	swap(i, j) {
+		const tmp = this._data[i];
+		this._data[i] = this._data[j];
+		this._data[j] = tmp;
 	}
 }
 
