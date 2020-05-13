@@ -1,4 +1,5 @@
 const BST = require('./BST');
+const PriorityQueue = require('./PriorityQueue');
 
 const num20 = s => {
 	var stack = [];
@@ -257,4 +258,37 @@ exports.test107 = () => {
         }
         return numbers.reverse();
     };
+};
+
+function Freq(elm, freq) {
+    this.elm = elm;
+    this.freq = freq;
+    this.valueOf = () => -freq;
+}
+const test347 = (nums, k) => {
+    const map = new Map();
+    for(const num of nums) {
+        if( map.has(num) ) {
+            map.set(num, map.get(num) + 1);
+        } else {
+            map.set(num, 1);
+        }
+    }
+
+    const pq = new PriorityQueue();
+    for( const [key, val] of map ) {
+        if( pq.getSize() < k ) {
+            pq.enqueue(new Freq(key, val));
+        } else if ( val > pq.getFront().freq ) {
+            pq.dequeue();
+            pq.enqueue(new Freq(key, val));
+        }
+    }
+    
+    const res = [];
+    while( !!pq.getSize() ) {
+        res.push( pq.dequeue().elm );
+    }
+
+    return res;
 };
