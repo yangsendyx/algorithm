@@ -8,10 +8,10 @@ const execSync = child_process.execSync;
 const Logger = require('log4js').getLogger();
 const fs = require('fs');
 
-const buildBase = './02/build/';
-const javaBase = './02/java/';
+const buildBase = './03/build/';
+const javaBase = './03/java/';
 const cppBase = './01/cpp/';
-const jsBase = './02/js/';
+const jsBase = './03/js/';
 
 program
 .usage('<name> [js]')
